@@ -64,5 +64,23 @@
             </list>
         </property>
     </bean>
+    
+    <bean id="procurementCardInputFileType" class="org.kuali.kfs.fp.batch.ProcurementCardInputFileType"> 
+	    <property name="directoryPath">
+	       <value>${staging.directory}/fp/procurementCard</value>
+	    </property>
+	    <property name="fileExtension">
+	       <value>xml</value>
+	    </property>
+	    <property name="digestorRulesFileName">
+	       <value>edu/arizona/kfs/fp/batch/pcdoLevel3DigesterRules.xml</value>
+	    </property>
+	    <property name="schemaLocation">
+	       <value>${externalizable.static.content.url}/xsd/fp/procurementCardLevel3.xsd</value>
+	    </property>
+	    <property name="dateTimeService">
+	       <ref bean="dateTimeService"/>
+	    </property>
+	</bean>
 
 </beans>
