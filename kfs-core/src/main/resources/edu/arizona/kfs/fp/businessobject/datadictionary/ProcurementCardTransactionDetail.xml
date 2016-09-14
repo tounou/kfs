@@ -101,8 +101,6 @@ http://rice.kuali.org/dd http://rice.kuali.org/dd/dd.xsd">
 			<ref bean="ProcurementCardTransactionDetail-procurementCardLevel3Transport.totalFare" />
 			<ref bean="ProcurementCardTransactionDetail-procurementCardLevel3Transport.totalFees" />
 			<ref bean="ProcurementCardTransactionDetail-procurementCardLevel3Transport.totalTaxes" />
-			<ref bean="ProcurementCardTransactionDetail-editableSalesTaxAmount" />
-			<ref bean="ProcurementCardTransactionDetail-transactionNoReceiptIndicator" />
 		</list>
 	</property>
 </bean>
@@ -455,7 +453,7 @@ http://rice.kuali.org/dd http://rice.kuali.org/dd/dd.xsd">
   </bean>
   
   <bean id="ProcurementCardTransactionDetail-procurementCardLevel3Rental.regularCharges" parent="ProcurementCardTransactionDetail-procurementCardLevel3Rental.regularCharges-parentBean" />
-  <bean id="ProcurementCardTransactionDetail-procurementCardLevel3Rental.regularCharges-parentBean" parent="ProcurementCardLevel3Rental.regularCharges" abstract="true">
+  <bean id="ProcurementCardTransactionDetail-procurementCardLevel3Rental.regularCharges-parentBean" parent="ProcurementCardLevel3Rental-regularCharges" abstract="true">
   	<property name="name" value="procurementCardLevel3Rental.regularCharges" />
   </bean>
   
@@ -568,24 +566,6 @@ http://rice.kuali.org/dd http://rice.kuali.org/dd/dd.xsd">
   	<property name="label" value="Tax Exempt Indicator"/>
   </bean>
   
-  <bean id="ProcurementCardTransactionDetail-editableSalesTaxAmount" parent="ProcurementCardTransactionDetail-editableSalesTaxAmount-parentBean" />
-  <bean id="ProcurementCardTransactionDetail-editableSalesTaxAmount-parentBean" parent="GenericAttributes-genericAmount" abstract="true">
-  	<property name="name" value="transactionEditableSalesTaxAmount" />
-  	<property name="label" value="Enter Sales Tax" />
-  	<property name="shortLabel" value="Sales Tax" />
-  </bean>
-
-  <bean id="ProcurementCardTransactionDetail-transactionNoReceiptIndicator" parent="ProcurementCardTransactionDetail-transactionNoReceiptIndicator-parentBean"/>
-  <bean id="ProcurementCardTransactionDetail-transactionNoReceiptIndicator-parentBean" parent="AttributeDefinition" abstract="true">
-  	<property name="name" value="transactionNoReceiptIndicator" />
-  	<property name="label" value="No Receipt" />
-  	<property name="shortLabel" value="No Receipt" />
-  	<property name="maxLength" value="1" />
-  	<property name="control">
-  		<bean parent="CheckboxControlDefinition"/>
-  	</property>
-  </bean>
-  
 <!-- Business Object Inquiry Definition -->
 
   <bean id="ProcurementCardTransactionDetail-inquiryDefinition" parent="ProcurementCardTransactionDetail-inquiryDefinition-parentBean">
@@ -615,7 +595,7 @@ http://rice.kuali.org/dd http://rice.kuali.org/dd/dd.xsd">
   				<property name="numberOfColumns" value="1" />
   				<property name="inquiryFields">
   					<list>
-  						<bean parent="InquiryCollectionDefinition" p:attributeName="procurementCardlevel3AddItems" p:businessObjectClass="edu.arizona.kfs.fp.businessobject.ProcurementCardLevel2AddItem">
+  						<bean parent="InquiryCollectionDefinition" p:attributeName="procurementCardLevel3AddItems" p:businessObjectClass="edu.arizona.kfs.fp.businessobject.ProcurementCardLevel3AddItem">
   							<property name="numberOfColumns" value="4" />
   							<property name="inquiryFields">
   								<list>
@@ -753,7 +733,7 @@ http://rice.kuali.org/dd http://rice.kuali.org/dd/dd.xsd">
   						<bean parent="FieldDefinition" p:attributeName="procurementCardLevel3Rental.returnDate" />
   						<bean parent="FieldDefinition" p:attributeName="procurementCardLevel3Rental.returnLocation" />
   						<bean parent="FieldDefinition" p:attributeName="procurementCardLevel3Rental.customerSvcNum" />
-  						<bean parent="FieldDefinition" p:attributeName="procurementCardlevel3Rental.rentalClass" />
+  						<bean parent="FieldDefinition" p:attributeName="procurementCardLevel3Rental.rentalClass" />
   						<bean parent="FieldDefinition" p:attributeName="procurementCardLevel3Rental.dailyRate" />
   						<bean parent="FieldDefinition" p:attributeName="procurementCardLevel3Rental.weeklyRate" />
   						<bean parent="FieldDefinition" p:attributeName="procurementCardLevel3Rental.ratePerMile" />
